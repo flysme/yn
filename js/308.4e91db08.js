@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkyouning_design"]=self["webpackChunkyouning_design"]||[]).push([[308],{5308:function(n,u,e){e.r(u),e.d(u,{default:function(){return a}});var r=e(3396);function i(n,u){return(0,r.wg)(),(0,r.iD)("div",null,"关于我们")}var t=e(89);const s={},c=(0,t.Z)(s,[["render",i]]);var a=c}}]);
+//# sourceMappingURL=308.4e91db08.js.map
