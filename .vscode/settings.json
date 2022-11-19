@@ -1,0 +1,53 @@
+{
+}/ settings.json
+{
+  "codestream.serverUrl": "https://api.codestream.com",
+  "security.workspace.trust.untrustedFiles": "open",
+  "editor.language.brackets": false,
+  "editor.formatOnSave": true,
+  // "eslint.autoFixOnSave": true,
+  "eslint.packageManager": "yarn",
+  "eslint.validate": [
+    "javascript", //  用eslint的规则检测js文件
+    {
+      "language": "vue", // 检测vue文件
+      "autoFix": true //  为vue文件开启保存自动修复的功能
+    },
+    {
+      "language": "html",
+      "autoFix": true
+    }
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.tabSize": 2,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "vetur.format.defaultFormatterOptions": {
+    "js-beautify-html": {
+      // 超过120的部分换行
+      "wrap_line_length": 120,
+      "wrap_attributes": "auto",
+      "end_with_newline": false
+    },
+
+    "prettier": {
+      // 设置分号
+      "singleQuote": true,
+      // 双引号变成单引号
+      "semi": false,
+      // 超过120的部分换行
+      "printWidth": 120,
+
+      "wrapAttributes": true,
+
+      "sortAttributes": false,
+      // 禁止随时添加逗号
+      "trailingComma": "none"
+    }
+  },
+  // 设置编译器默认使用vetur方式格式化代码
+  "[vue]": {
+    "editor.defaultFormatter": "octref.vetur"
+  }
+}
