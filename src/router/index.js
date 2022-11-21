@@ -10,4 +10,8 @@ const router = createRouter({
   routes, // `routes: routes` 的缩写
 });
 
+router.beforeEach((to, from) => {
+  document.title = to.meta.title
+})
+
 export default router;

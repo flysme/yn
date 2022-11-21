@@ -32,12 +32,17 @@
     <div class="case__intro">
       <div class="nav__title">案例介绍</div>
       <div class="case__wall">
-        <div :class="['case__item', `case__item_${index + 1}`]" v-for="(item, index) in caseImgList" :key="index">
+        <div :class="['case__item', `case__item_${index + 1}`]" v-for="(item, index) in caseImgList" :key="index" @click="handleCurrentPreview(index)">
           <img :src="item" alt="" />
-          <img :src="vr360" alt="" class="vr__icon" />
+          <img :src="vr360" alt="" class="vr__icon"  v-if="index == 0"/>
         </div>
       </div>
       <var-button text size="small" outline @click="handleMoreCase">MORE</var-button>
+      <var-image-preview
+        :current="currentImg"
+        :images="caseImgList"
+        v-model:show="showCaseImg"
+      />
     </div>
     <!-- 设计团队 -->
     <div class="design__team">
@@ -70,7 +75,7 @@
               />
               <div class="user__info--name">俞森清</div>
               <div class="user__info--job-name">首席设计总监</div>
-              <div class="user__info--advantage">擅长 新中式、欧式，日式禅意、大花园设计，商务会洽</div>
+              <div class="user__info--advantage"><span>擅长 新中式、欧式，日式禅意、大花园设计，商务会洽</span> <a href="">更多></a> </div>
             </div>
           </div>
         </swiper-slide>
@@ -80,7 +85,7 @@
               <img src="https://img2.woyaogexing.com/2018/03/08/ddca462a1c480272!400x400_big.jpg" alt="" />
               <div class="user__info--name">Kim</div>
               <div class="user__info--job-name">首席设计师</div>
-              <div class="user__info--advantage">擅长 新中式、欧式，日式禅意、大花园设计，商务会洽</div>
+              <div class="user__info--advantage"><span>擅长 新中式、欧式，日式禅意、大花园设计，商务会洽</span> <a href="">更多></a> </div>
             </div>
           </div>
         </swiper-slide>
@@ -90,7 +95,7 @@
               <img src="https://t9.baidu.com/it/u=3344676249,2398616189&fm=193" alt="" />
               <div class="user__info--name">大俞-jay</div>
               <div class="user__info--job-name">花园施工专家</div>
-              <div class="user__info--advantage">擅长 欧式花园设计，商务会洽亭阁施工</div>
+              <div class="user__info--advantage"><span>擅长 新中式、欧式，日式禅意、大花园设计，商务会洽</span> <a href="">更多></a> </div>
             </div>
           </div>
         </swiper-slide>
@@ -144,12 +149,12 @@
         </var-steps>
       </div>
       <var-snackbar v-model:show="showFlow"> 敬请期待！ </var-snackbar>
-      <var-button text size="small" outline @click="showFlow=true">MORE</var-button>
+      <var-button text size="small" outline @click="handleMoreService">MORE</var-button>
     </div>
     <!-- 联系我们 -->
     <div class="call__company">
       <div class="nav__title">联系我们</div>
-      <div class="call__us">电话: <a href="tel:18788840409">18788840409</a></div>
+      <var-button block type="primary" @click="handleCallMe">拨打电话</var-button>
     </div>
     <var-back-top :duration="300" />
   </div>
@@ -158,12 +163,7 @@
 <script setup>
 import { useRouter } from 'vue-router'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-
-import recommendIcon1 from '@/assets/imgs/recommend_icon_01.jpg'
-
-import recommendIcon2 from '@/assets/imgs/recommend_icon_02.jpg'
-
-import recommendIcon3 from '@/assets/imgs/recommend_icon_03.jpg'
+import { ImagePreview } from '@varlet/ui'
 
 import serviceFlowIcon1 from '@/assets/imgs/shejituandui.png'
 import serviceFlowIcon2 from '@/assets/imgs/shigong.png'
@@ -187,6 +187,35 @@ gsap.registerPlugin(ScrollTrigger)
 // 敬请期待弹窗
 const showFlow = ref(false)
 
+// 显示案例
+const caseImgList = ref([
+'https://s1.ax1x.com/2022/11/20/zMZLJ1.png',
+'https://s1.ax1x.com/2022/11/20/zMZXz6.png',
+'https://s1.ax1x.com/2022/11/20/zMVujS.jpg',
+'https://s1.ax1x.com/2022/11/20/zMVMng.jpg',
+'https://s1.ax1x.com/2022/11/20/zMVQBQ.jpg',
+'https://s1.ax1x.com/2022/11/20/zMZORx.png',
+'https://s1.ax1x.com/2022/11/20/zMV3As.jpg',
+'https://s1.ax1x.com/2022/11/20/zMVNcT.jpg',
+'https://s1.ax1x.com/2022/11/20/zMZHo9.png',
+'https://s1.ax1x.com/2022/11/20/zMVt3V.jpg',
+'https://s1.ax1x.com/2022/11/20/zMVduF.jpg',
+'https://s1.ax1x.com/2022/11/20/zMVDE9.jpg',
+'https://s1.ax1x.com/2022/11/20/zMZqiR.png',
+'https://s1.ax1x.com/2022/11/20/zMVrNR.jpg',
+'https://s1.ax1x.com/2022/11/20/zMVc36.jpg'
+])
+const showCaseImg = ref(false)
+const currentImg = ref(caseImgList.value[0])
+function handleCurrentPreview(index) {
+  if (index ==0) {
+    return router.push({path: '/vr'})
+  }
+  currentImg.value = caseImgList.value[index]
+  showCaseImg.value = true
+}
+
+
 // 公司基本信息
 const companyInfo = reactive({
   companySetupDate: 2002,
@@ -195,13 +224,9 @@ const companyInfo = reactive({
   teamNum: 500
 })
 
-const caseImgList = ref([
-  'https://img1.baidu.com/it/u=3941240819,3256416705&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
-  'https://img1.baidu.com/it/u=1710483479,3454081793&fm=253&fmt=auto&app=138&f=JPEG?w=640&h=480',
-  'https://img0.baidu.com/it/u=2512129220,491126209&fm=253&fmt=auto&app=138&f=JPEG?w=440&h=440',
-  'https://img1.baidu.com/it/u=3044450226,3672491211&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1668877200&t=024e14145fcfa5e4e3edf87ad92e5a21',
-  'https://img2.baidu.com/it/u=3713877049,549326822&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=889'
-])
+
+
+
 
 onMounted(() => {
   // gsap.to(companyInfo, {
@@ -249,10 +274,25 @@ onMounted(() => {
   })
 })
 const router = useRouter()
-const swipeIconList = ref([recommendIcon1, recommendIcon2, recommendIcon3])
+
+const swipeIconList = ref(['https://s1.ax1x.com/2022/11/20/zMEIpV.jpg','https://s1.ax1x.com/2022/11/20/zME4f0.jpg','https://s1.ax1x.com/2022/11/20/zMEhYq.jpg'])
+
+
+const preview = (index) => {
+  ImagePreview(caseImgList.value[index])
+}
 
 function handleMoreCase() {
   router.push({ path: '/case' })
+}
+
+function handleMoreService() {
+  router.push({ path: '/service_flow' })
+  
+}
+
+function handleCallMe() {
+  window.location.href= 'tel://15156571460';
 }
 </script>
 
@@ -349,8 +389,9 @@ function handleMoreCase() {
   .design__team,
   .service__flow,
   .call__company {
-    padding: 0px 0 40px;
-    width: 100%;
+    border-top:1px solid #00000014;
+
+    padding: 0px 10px 40px;
     text-align: center;
     .nav__title {
       padding: 30px 0 20px;
@@ -393,9 +434,16 @@ function handleMoreCase() {
     --step-tag-background: #000;
     --step-tag-active-color: #000;
   }
+  .call__company {
+    padding: 0 40px 30px;
+    a {
+      // width: 100%;
+      // height: 50px;
+    }
+  }
   .step__box-content {
     display: flex;
-    width: 80vw;
+    width: 75vw;
     justify-content: space-between;
     // align-items: center;
   }

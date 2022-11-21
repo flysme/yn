@@ -21,13 +21,21 @@ import vr360 from '@/assets/imgs/360_rotate.png'
 
 gsap.registerPlugin(ScrollTrigger)
 const caseImgList = ref([
-  'https://img1.baidu.com/it/u=3941240819,3256416705&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
-  'https://img1.baidu.com/it/u=1710483479,3454081793&fm=253&fmt=auto&app=138&f=JPEG?w=640&h=480',
-  'https://img0.baidu.com/it/u=2512129220,491126209&fm=253&fmt=auto&app=138&f=JPEG?w=440&h=440',
-  'https://img1.baidu.com/it/u=3044450226,3672491211&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1668877200&t=024e14145fcfa5e4e3edf87ad92e5a21',
-  'https://img2.baidu.com/it/u=3713877049,549326822&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=889',
-  'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202003%2F29%2F20200329120140_QzKSu.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671461434&t=417bd4b24615af42d068378ac4909c4e',
-  'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_bt%2F0%2F1857351758%2F641&refer=http%3A%2F%2Finews.gtimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671461434&t=3a360259090069841f451dbffe89a800'
+'https://s1.ax1x.com/2022/11/20/zMZLJ1.png',
+'https://s1.ax1x.com/2022/11/20/zMZXz6.png',
+'https://s1.ax1x.com/2022/11/20/zMVujS.jpg',
+'https://s1.ax1x.com/2022/11/20/zMVMng.jpg',
+'https://s1.ax1x.com/2022/11/20/zMVQBQ.jpg',
+'https://s1.ax1x.com/2022/11/20/zMZORx.png',
+'https://s1.ax1x.com/2022/11/20/zMV3As.jpg',
+'https://s1.ax1x.com/2022/11/20/zMVNcT.jpg',
+'https://s1.ax1x.com/2022/11/20/zMZHo9.png',
+'https://s1.ax1x.com/2022/11/20/zMVt3V.jpg',
+'https://s1.ax1x.com/2022/11/20/zMVduF.jpg',
+'https://s1.ax1x.com/2022/11/20/zMVDE9.jpg',
+'https://s1.ax1x.com/2022/11/20/zMZqiR.png',
+'https://s1.ax1x.com/2022/11/20/zMVrNR.jpg',
+'https://s1.ax1x.com/2022/11/20/zMVc36.jpg'
 ])
 onMounted(()=>{
   caseImgList.value.forEach((item, index) => {
