@@ -34,6 +34,7 @@
       <div class="case__wall">
         <div :class="['case__item', `case__item_${index + 1}`]" v-for="(item, index) in caseImgList" :key="index" @click="handleCurrentPreview(index)">
           <img :src="item" alt="" />
+          <div class="case__title">110㎡新中式田园风格新中式田园风格新中式田园风格式田园风格</div>
           <img :src="vr360" alt="" class="vr__icon"  v-if="index == 0"/>
         </div>
       </div>
@@ -247,7 +248,7 @@ onMounted(() => {
   var tl = gsap.timeline({
     scrollTrigger: '.home__intro--item-b',
     defaults: {
-      duration: 0.4,
+      duration: 0.8,
       scale: 1
     }
   })
@@ -407,16 +408,29 @@ function handleCallMe() {
       column-gap: 5px; // 列间距
       .case__item {
         width: 100%;
-        padding-bottom: 5px;
+        padding-top: 10px;
         opacity: 0;
         position: relative;
         img {
+          border-radius: 5px 5px 0 0;
           width: 100%;
           vertical-align: top;
         }
+        .case__title {
+          padding: 4px 6px;
+          line-height: 20px;
+          text-align: left;
+          font-size: 12px;
+          font-weight: 500;
+          overflow:hidden;
+          text-overflow:ellipsis;
+          display:-webkit-box;
+          -webkit-box-orient:vertical;
+          -webkit-line-clamp:2; // 想要超出三行显示 就把这里改成3就好了
+        }
         .vr__icon {
           position: absolute;
-          top: 10px;
+          top: 20px;
           right: 10px;
           z-index: 10;
           width: 20px;
