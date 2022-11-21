@@ -6,11 +6,12 @@
 import { onMounted } from "@vue/runtime-core";
 import { useRoute } from "vue-router";
 
-onMounted(()=> {
-    const route = useRoute()
-    console.log(route.params.id)
-})
+onMounted(() => {
+  const route = useRoute();
+  console.log(route.params.id);
+});
 </script>
+
 
 <style lang="scss" scoped>
 </style>

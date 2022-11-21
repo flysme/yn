@@ -67,7 +67,7 @@ const caseImgList = ref([
 const styleVars = ref({
   "--tabs-item-horizontal-height": "32px",
 });
-const router = useRouter()
+const router = useRouter();
 const active = ref(0);
 const loading = ref(false);
 const finished = ref(false);
@@ -98,7 +98,7 @@ onMounted(() => {
 });
 
 function toCase(index) {
-  router.push({path: `/case_detail/${index}`})
+  router.push({ path: `/case_detail/${index}` });
 }
 </script>
 
@@ -122,7 +122,7 @@ function toCase(index) {
     .var-image {
       border-radius: 5px 5px 0 0 !important;
       width: 100%;
-      
+
       vertical-align: top;
     }
     .case__title {
