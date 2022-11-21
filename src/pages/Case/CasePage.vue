@@ -23,6 +23,7 @@
             :class="['case__item', `case__item_${index + 1}`]"
             v-for="(item, index) in caseImgList"
             :key="index"
+            @click="toCase(index)"
           >
             <!-- <img :src="item" alt="" /> -->
             <var-image lazy :src="item" />
@@ -42,6 +43,7 @@ import { onMounted, reactive, ref } from "vue";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import vr360 from "@/assets/imgs/360_rotate.png";
+import { useRouter } from "vue-router";
 
 gsap.registerPlugin(ScrollTrigger);
 const caseImgList = ref([
@@ -65,6 +67,7 @@ const caseImgList = ref([
 const styleVars = ref({
   "--tabs-item-horizontal-height": "32px",
 });
+const router = useRouter()
 const active = ref(0);
 const loading = ref(false);
 const finished = ref(false);
@@ -93,6 +96,10 @@ onMounted(() => {
     });
   });
 });
+
+function toCase(index) {
+  router.push({path: `/case_detail/${index}`})
+}
 </script>
 
 <style lang="scss" scoped>
@@ -122,7 +129,7 @@ onMounted(() => {
       padding: 4px 6px;
       line-height: 20px;
       text-align: left;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 500;
       overflow: hidden;
       text-overflow: ellipsis;

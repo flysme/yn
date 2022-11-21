@@ -420,7 +420,7 @@ function handleCallMe() {
           padding: 4px 6px;
           line-height: 20px;
           text-align: left;
-          font-size: 12px;
+          font-size: 13px;
           font-weight: 500;
           overflow:hidden;
           text-overflow:ellipsis;

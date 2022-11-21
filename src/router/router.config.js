@@ -13,6 +13,11 @@ const routes = [
     meta: { title: '首页' },
   },
   {
+    path: '/case_detail/:id',
+    component: () => import('@/pages/CaseDetail/index.vue'),
+    meta: { title: '案例详情' },
+  },
+  {
     path: '/service_flow',
     component: () => import('@/pages/ServiceFlow/ServiceFlowPage.vue'),
     meta: { title: '服务流程' },
