@@ -10,16 +10,16 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 3003,
     proxy: {
-      '/proxy_img': {
-        target: 'https://m1.im5i.com',
+      '/gh/flysme/images_service': {
+        target: 'https://cdn.staticaly.com',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/proxy_img/, '')
+        rewrite: (path) => path.replace(/^\/proxy_img/, ''),
       },
-    }
+    },
   },
   resolve: {
     alias: {
-      '@': resolve(__dirname, 'src')
-    }
-  }
+      '@': resolve(__dirname, 'src'),
+    },
+  },
 })
