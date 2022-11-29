@@ -46,19 +46,17 @@
           :key="index"
           @click="handleCurrentPreview(index)"
         >
-          <img :src="item" alt="" />
-          <div class="case__title">
-            110㎡新中式田园风格新中式田园风格新中式田园风格式田园风格
-          </div>
+          <img :src="item.url" alt="" />
+          <div class="case__title">{{ item.name }}</div>
           <img :src="vr360" alt="" class="vr__icon" v-if="index == 0" />
         </div>
       </div>
-      <var-button text size="small" outline @click="handleMoreCase"
+      <!-- <var-button text size="small" outline @click="handleMoreCase"
         >MORE</var-button
-      >
+      > -->
       <var-image-preview
         :current="currentImg"
-        :images="caseImgList"
+        :images="caseImgList.map((item) => item.url)"
         v-model:show="showCaseImg"
       />
     </div>
@@ -191,21 +189,34 @@ const showFlow = ref(false);
 
 // 显示案例
 const caseImgList = ref([
-  "https://s1.ax1x.com/2022/11/20/zMZLJ1.png",
-  "https://s1.ax1x.com/2022/11/20/zMZXz6.png",
-  "https://s1.ax1x.com/2022/11/20/zMVujS.jpg",
-  "https://s1.ax1x.com/2022/11/20/zMVMng.jpg",
-  "https://s1.ax1x.com/2022/11/20/zMVQBQ.jpg",
-  "https://s1.ax1x.com/2022/11/20/zMZORx.png",
-  "https://s1.ax1x.com/2022/11/20/zMV3As.jpg",
+  {
+    url: "https://s1.ax1x.com/2022/11/20/zMZLJ1.png",
+    name: "105平新中式庭院设计",
+  },
+  {
+    url: "https://s1.ax1x.com/2022/11/20/zMVMng.jpg",
+    name: "60平新中式庭院设计",
+  },
+  {
+    url: "https://s1.ax1x.com/2022/11/20/zMVQBQ.jpg",
+    name: "40平新中式庭院设计",
+  },
+  {
+    url: "https://s1.ax1x.com/2022/11/20/zMVc36.jpg",
+    name: "80平现代极简庭院设计",
+  },
+  {
+    url: "https://s1.ax1x.com/2022/11/20/zMV3As.jpg",
+    name: "80平现代极简庭院设计",
+  },
 ]);
 const showCaseImg = ref(false);
-const currentImg = ref(caseImgList.value[0]);
+const currentImg = ref(caseImgList.value[0].url);
 function handleCurrentPreview(index) {
   if (index == 0) {
     return router.push({ path: "/vr" });
   }
-  currentImg.value = caseImgList.value[index];
+  currentImg.value = caseImgList.value[index].url;
   showCaseImg.value = true;
 }
 
@@ -228,6 +239,15 @@ const designer = reactive([
     more: "从业8年,毕业于安徽建筑大学。擅长新中式、现代简约、美式等风格。从多维度思考设计美学结合功能。一切随心，用心去感悟庭院空间。",
     casePic: [],
   },
+  {
+    jobName: "总监设计师",
+    name: "李乐依",
+    avatar: "https://img.picgo.net/2022/11/29/317dd4a7438ee38b0.png",
+    description:
+      "从业7年，擅长大小庭院景观，私家花园等。设计是一种追求完美的生活态度.",
+    more: "从业7年，擅长大小庭院景观，私家花园等。设计是一种追求完美的生活态度，是追求品味的生活概念。一切随心，用心去感悟庭院空间。",
+    casePic: [],
+  },
 
   {
     jobName: "资深设计师",
@@ -235,6 +255,15 @@ const designer = reactive([
     avatar: "https://img.picgo.net/2022/11/23/32a689032e130f457.png",
     description: "从业4年,擅长风水结合的现代以及新中式风格，倡导创意生活意识。",
     more: "从业4年,擅长风水结合的现代以及新中式风格，倡导创意生活意识。创造出属于自己独特的生后方式",
+    casePic: [],
+  },
+
+  {
+    jobName: "资深设计师",
+    name: "谢逸晨",
+    avatar: "https://img.picgo.net/2022/11/29/2b28c55894c0fd597.png",
+    description:
+      "从业5年，每一个庭院都有独有的气质，作为设计师的需会用最专业的眼光取发现它的美",
     casePic: [],
   },
   {
@@ -301,7 +330,7 @@ const swipeIconList = ref([
 ]);
 
 const preview = (index) => {
-  ImagePreview(caseImgList.value[index]);
+  ImagePreview(caseImgList.value[index].url);
 };
 
 function handleMoreCase() {
@@ -331,7 +360,7 @@ function handleCallMe() {
 
 .swipe-example-image {
   width: 100%;
-  height: 90vh;
+  height: 600px;
   object-fit: cover;
   pointer-events: none;
 }
@@ -432,7 +461,7 @@ function handleCallMe() {
         opacity: 0;
         position: relative;
         img {
-          border-radius: 5px 5px 0 0;
+          border-radius: 5px;
           width: 100%;
           vertical-align: top;
         }
@@ -561,5 +590,8 @@ function handleCallMe() {
 .swiper-slide-shadow-right,
 .swiper-slide-shadow-left {
   background: none !important;
+}
+.step__box-content {
+  color: #000;
 }
 </style>
