@@ -1,0 +1,1 @@
+import{a as o,i as t,G as a,x as n}from"./index.21c90c48.js";const u={__name:"index",setup(s){return o(()=>{const e=a();console.log(e.params.id)}),(e,r)=>(n(),t("div",null,"\u6848\u4F8B\u8BE6\u60C5"))}};export{u as default};

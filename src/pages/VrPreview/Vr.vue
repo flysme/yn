@@ -6,16 +6,21 @@
 import { onMounted } from "vue";
 import PhotoSphereViewer from "../../libs/hoto-sphere-viewer";
 import "../../libs/hoto-sphere-viewer/photo-sphere-viewer.css";
+import { getDesignSketchLibInfo } from "@/api/home";
+import { useRoute } from "vue-router";
 let viewer;
-onMounted(() => {
+onMounted(async () => {
+  const route = useRoute();
+  const resp = await getDesignSketchLibInfo(route.params.id);
   viewer = new PhotoSphereViewer.Viewer({
     container: document.querySelector("#viewer"),
     // size: { width: 500, height: 800 },
-    panorama:
-      "https://cdn.staticaly.com/gh/flysme/images_service@master/20221122/youning_imgYN0068.7jxemfjk6t00.jpg",
+    panorama: resp.data?.panoramaPic,
     navbar: [
-      //   "zoom", //放大缩小按钮
+      "zoom", //放大缩小按钮
     ],
+    // navbar: true,
+    loadingTxt: "图片渲染中...",
   });
 });
 </script>

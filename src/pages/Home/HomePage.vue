@@ -41,24 +41,20 @@
       <div class="nav__title">精选案例</div>
       <div class="case__wall">
         <div
-          :class="['case__item', `case__item_${index + 1}`]"
+          :class="['case__item']"
           v-for="(item, index) in caseImgList"
           :key="index"
-          @click="handleCurrentPreview(index)"
+          @click="handleCurrentPreview(item, index)"
         >
-          <img :src="item.url" alt="" />
+          <img :src="item.thumbnail" alt="" />
           <div class="case__title">{{ item.name }}</div>
-          <img :src="vr360" alt="" class="vr__icon" v-if="index == 0" />
+          <img :src="vr360" alt="" class="vr__icon" v-if="item.isVr" />
         </div>
       </div>
       <!-- <var-button text size="small" outline @click="handleMoreCase"
         >MORE</var-button
       > -->
-      <var-image-preview
-        :current="currentImg"
-        :images="caseImgList.map((item) => item.url)"
-        v-model:show="showCaseImg"
-      />
+      <var-image-preview :images="previewImgs" v-model:show="showCaseImg" />
     </div>
     <!-- 设计团队 -->
     <div class="design__team">
@@ -172,6 +168,7 @@ import serviceFlowIcon4 from "@/assets/imgs/limianfangan.png";
 import serviceFlowIcon5 from "@/assets/imgs/xianchang.png";
 
 import vr360 from "@/assets/imgs/360_rotate.png";
+import { getDesignSketchLibs, getWebsiteConfig } from "@/api/home";
 
 // Import Swiper styles
 import "swiper/css";
@@ -188,36 +185,15 @@ gsap.registerPlugin(ScrollTrigger);
 const showFlow = ref(false);
 
 // 显示案例
-const caseImgList = ref([
-  {
-    url: "https://s1.ax1x.com/2022/11/20/zMZLJ1.png",
-    name: "105平新中式庭院设计",
-  },
-  {
-    url: "https://s1.ax1x.com/2022/11/20/zMVMng.jpg",
-    name: "60平新中式庭院设计",
-  },
-  {
-    url: "https://s1.ax1x.com/2022/11/20/zMVQBQ.jpg",
-    name: "40平新中式庭院设计",
-  },
-  {
-    url: "https://s1.ax1x.com/2022/11/20/zMVc36.jpg",
-    name: "80平现代极简庭院设计",
-  },
-  {
-    url: "https://s1.ax1x.com/2022/11/20/zMV3As.jpg",
-    name: "80平现代极简庭院设计",
-  },
-]);
+const previewImgs = ref([]);
+
 const showCaseImg = ref(false);
-const currentImg = ref(caseImgList.value[0].url);
-function handleCurrentPreview(index) {
-  if (index == 0) {
-    return router.push({ path: "/vr" });
+function handleCurrentPreview(item, index) {
+  if (item.isVr) {
+    return router.push({ path: `/vr/${item.id}` });
   }
-  currentImg.value = caseImgList.value[index].url;
   showCaseImg.value = true;
+  previewImgs.value = item?.pic;
 }
 
 // 公司基本信息
@@ -229,6 +205,7 @@ const companyInfo = reactive({
 });
 
 // 设计师
+const caseImgList = ref([]);
 const designer = reactive([
   {
     jobName: "总监设计师",
@@ -275,23 +252,16 @@ const designer = reactive([
     casePic: [],
   },
 ]);
+const swipeIconList = ref([]);
+onMounted(async () => {
+  const resp = await getDesignSketchLibs();
+  getWebsiteConfig().then((conf) => {
+    swipeIconList.value = conf.data?.swiper;
+    caseImgList.value = resp.data.filter((item) =>
+      conf.data?.excellentCaseIds.includes(item.id)
+    );
+  });
 
-onMounted(() => {
-  // gsap.to(companyInfo, {
-  //   scrollTrigger: '.case__intro',
-  //   duration: 3,
-  //   scale: 0.3,
-  //   companySetupDate: 2007,
-  //   customerNum: 3000,
-  //   acreageNum: 6000000,
-  //   teamNum: 500
-  // })
-  // gsap.to('.home__intro--item', {
-  //   scrollTrigger: '.case__intro',
-  //   duration: 0.6,
-  //   scale: 1
-  // })
-  // home__intro--item-d
   var tl = gsap.timeline({
     scrollTrigger: ".home__intro--item-b",
     defaults: {
@@ -303,35 +273,8 @@ onMounted(() => {
     .to(`.home__intro--item-b`, {})
     .to(`.home__intro--item-c`, {})
     .to(`.home__intro--item-d`, {});
-  // var tl = gsap.timeline({ scrollTrigger: '.case__wall' })
-  // caseImgList.value.forEach((item, index) => {
-  //   let obj = index == 0 ? { scrollTrigger: '.case__wall' } : {}
-  //   tl.to(`.case__item_${index + 1}`, {
-  //     ...obj,
-  //     opacity: 1,
-  //     duration: 0.8
-  //   })
-  // })
-  caseImgList.value.forEach((item, index) => {
-    // let obj = index == 0 ? { scrollTrigger: '.case__wall' } : {}
-    gsap.to(`.case__item_${index + 1}`, {
-      scrollTrigger: `.case__item_${index + 1}`,
-      opacity: 1,
-      duration: 5,
-    });
-  });
 });
 const router = useRouter();
-
-const swipeIconList = ref([
-  "https://s1.ax1x.com/2022/11/20/zMEIpV.jpg",
-  "https://s1.ax1x.com/2022/11/20/zME4f0.jpg",
-  "https://s1.ax1x.com/2022/11/20/zMEhYq.jpg",
-]);
-
-const preview = (index) => {
-  ImagePreview(caseImgList.value[index].url);
-};
 
 function handleMoreCase() {
   router.push({ path: "/case" });
@@ -457,8 +400,9 @@ function handleCallMe() {
       column-gap: 5px; // 列间距
       .case__item {
         width: 100%;
+        break-inside: avoid;
+        box-sizing: border-box;
         padding-top: 10px;
-        opacity: 0;
         position: relative;
         img {
           border-radius: 5px;

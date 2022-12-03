@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@varlet/ui": "^2.2.1",
+    "axios": "^1.2.0",
     "gsap": "^3.11.3",
     "motion": "^10.14.3",
     "photo-sphere-viewer": "^4.8.0",

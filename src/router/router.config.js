@@ -1,4 +1,3 @@
-
 import Vr from '@/pages/VrPreview/Vr.vue'
 // 1. 定义一些路由
 const routes = [
@@ -28,8 +27,8 @@ const routes = [
     meta: { title: '团队介绍' },
   },
   {
-    path: '/vr',
-    component:  Vr,
+    path: '/vr/:id',
+    component: Vr,
     meta: { title: '全景预览' },
   },
   {

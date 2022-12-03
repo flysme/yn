@@ -1,4 +1,4 @@
-import{a as rf,f as of,s as af}from"./index.1a28cc13.js";var Dh=typeof globalThis!="undefined"?globalThis:typeof window!="undefined"?window:typeof global!="undefined"?global:typeof self!="undefined"?self:{},Wa={exports:{}},A={};/**
+import{a as rf,i as of,x as af}from"./index.21c90c48.js";var Dh=typeof globalThis!="undefined"?globalThis:typeof window!="undefined"?window:typeof global!="undefined"?global:typeof self!="undefined"?self:{},Wa={exports:{}},A={};/**
  * @license
  * Copyright 2010-2022 Three.js Authors
  * SPDX-License-Identifier: MIT
