@@ -1,0 +1,1 @@
+import{l as o,al as s,s as t,S as a}from"./index.1c493a72.js";const l={__name:"index",setup(n){return o(()=>{const e=s();console.log(e.params.id)}),(e,r)=>(t(),a("div",null,"\u6848\u4F8B\u8BE6\u60C5"))}};export{l as default};

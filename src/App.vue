@@ -29,6 +29,12 @@
 </template>
 
 <script setup>
+import { AppBar as VarAppBar } from "@varlet/ui";
+import "@varlet/ui/es/app-bar/style/index";
+import { Button as VarButton } from "@varlet/ui";
+import "@varlet/ui/es/button/style/index";
+import { Icon as VarIcon } from "@varlet/ui";
+import "@varlet/ui/es/icon/style/index";
 import { ref } from "vue";
 const showSide = ref(false);
 </script>
@@ -59,7 +65,6 @@ const showSide = ref(false);
   letter-spacing: 2px;
   font-weight: 500;
 }
-
 
 :root {
   --button-border-radius: 8px;

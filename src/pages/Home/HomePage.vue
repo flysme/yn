@@ -3,7 +3,7 @@
     <!-- 轮播图 -->
     <var-swipe class="swipe-example" autoplay="3000">
       <var-swipe-item v-for="(item, index) in swipeIconList" :key="index">
-        <img class="swipe-example-image" v-lazy="item" />
+        <img class="swipe-example-image" :src="item" />
       </var-swipe-item>
     </var-swipe>
     <div class="home__intro">
@@ -54,7 +54,6 @@
       <!-- <var-button text size="small" outline @click="handleMoreCase"
         >MORE</var-button
       > -->
-      <var-image-preview :images="previewImgs" v-model:show="showCaseImg" />
     </div>
     <!-- 设计团队 -->
     <div class="design__team">
@@ -97,7 +96,7 @@
     <div class="service__flow">
       <div class="nav__title">服务流程</div>
       <div class="step__box">
-        <var-steps direction="vertical" :active="active">
+        <var-steps direction="vertical">
           <var-step>
             <template #default>
               <div class="step__box-content">
@@ -140,7 +139,7 @@
           </var-step>
         </var-steps>
       </div>
-      <var-snackbar v-model:show="showFlow"> 敬请期待！ </var-snackbar>
+      <!-- <var-snackbar v-model:show="showFlow"> 敬请期待！ </var-snackbar> -->
       <var-button text size="small" outline @click="handleMoreService"
         >MORE</var-button
       >
@@ -153,20 +152,35 @@
       >
     </div>
     <var-back-top :duration="300" />
+    <!-- <var-image-preview :images="previewImgs" v-model:show="showCaseImg" /> -->
   </div>
 </template>
 
 <script setup>
+import { Swipe as VarSwipe } from "@varlet/ui";
+import "@varlet/ui/es/swipe/style/index";
+import { SwipeItem as VarSwipeItem } from "@varlet/ui";
+import "@varlet/ui/es/swipe-item/style/index";
+import { Button as VarButton } from "@varlet/ui";
+import "@varlet/ui/es/button/style/index";
+
+import { Steps as VarSteps } from "@varlet/ui";
+import "@varlet/ui/es/steps/style/index";
+
+import { Step as VarStep } from "@varlet/ui";
+import "@varlet/ui/es/step/style/index";
+
+import { BackTop as VarBackTop } from "@varlet/ui";
+import "@varlet/ui/es/back-top/style/index";
 import { useRouter } from "vue-router";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { ImagePreview } from "@varlet/ui";
-
+import "@varlet/ui/es/image-preview/style/index";
 import serviceFlowIcon1 from "@/assets/imgs/shejituandui.png";
 import serviceFlowIcon2 from "@/assets/imgs/shigong.png";
 import serviceFlowIcon3 from "@/assets/imgs/pingmian.png";
 import serviceFlowIcon4 from "@/assets/imgs/limianfangan.png";
 import serviceFlowIcon5 from "@/assets/imgs/xianchang.png";
-
 import vr360 from "@/assets/imgs/360_rotate.png";
 import { getDesignSketchLibs, getWebsiteConfig } from "@/api/home";
 
@@ -185,23 +199,24 @@ gsap.registerPlugin(ScrollTrigger);
 const showFlow = ref(false);
 
 // 显示案例
-const previewImgs = ref([]);
-
-const showCaseImg = ref(false);
 function handleCurrentPreview(item, index) {
   if (item.isVr) {
     return router.push({ path: `/vr/${item.id}` });
   }
-  showCaseImg.value = true;
-  previewImgs.value = item?.pic;
+  ImagePreview({
+    images: [...item?.pic],
+    onChange(index) {
+      console.log(index);
+    },
+  });
 }
 
 // 公司基本信息
 const companyInfo = reactive({
-  companySetupDate: 2002,
-  customerNum: 3000,
-  acreageNum: 6000000,
-  teamNum: 500,
+  companySetupDate: 2020,
+  customerNum: 300,
+  acreageNum: 60000,
+  teamNum: 100,
 });
 
 // 设计师

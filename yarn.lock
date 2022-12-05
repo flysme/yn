@@ -12,75 +12,6 @@
   resolved "https://registry.npmmirror.com/@esbuild/linux-loong64/-/linux-loong64-0.14.54.tgz#de2a4be678bd4d0d1ffbb86e6de779cde5999028"
   integrity sha512-bZBrLAIX1kpWelV0XemxBZllyRmM6vgFQQG2GdNb+r3Fkp0FOh1NJSvekXDs7jq70k4euu1cryLMfU+mTXlEpw==
 
-"@motionone/animation@^10.14.0":
-  version "10.14.0"
-  resolved "https://registry.npmmirror.com/@motionone/animation/-/animation-10.14.0.tgz#2f2a3517183bb58d82e389aac777fe0850079de6"
-  integrity sha512-h+1sdyBP8vbxEBW5gPFDnj+m2DCqdlAuf2g6Iafb1lcMnqjsRXWlPw1AXgvUMXmreyhqmPbJqoNfIKdytampRQ==
-  dependencies:
-    "@motionone/easing" "^10.14.0"
-    "@motionone/types" "^10.14.0"
-    "@motionone/utils" "^10.14.0"
-    tslib "^2.3.1"
-
-"@motionone/dom@^10.14.3":
-  version "10.14.3"
-  resolved "https://registry.npmmirror.com/@motionone/dom/-/dom-10.14.3.tgz#5b67d91debb6bdacf85664879d6125af06ceb7c8"
-  integrity sha512-tese0zSBsWwxCcs9qGNyynhnQ3/n43F6XI588AUKBIfE9D5ZelzQXOzr/T0+ErsVppXJtyGHviYEnv7KHc9x7Q==
-  dependencies:
-    "@motionone/animation" "^10.14.0"
-    "@motionone/generators" "^10.14.0"
-    "@motionone/types" "^10.14.0"
-    "@motionone/utils" "^10.14.0"
-    hey-listen "^1.0.8"
-    tslib "^2.3.1"
-
-"@motionone/easing@^10.14.0":
-  version "10.14.0"
-  resolved "https://registry.npmmirror.com/@motionone/easing/-/easing-10.14.0.tgz#d8154b7f71491414f3cdee23bd3838d763fffd00"
-  integrity sha512-2vUBdH9uWTlRbuErhcsMmt1jvMTTqvGmn9fHq8FleFDXBlHFs5jZzHJT9iw+4kR1h6a4SZQuCf72b9ji92qNYA==
-  dependencies:
-    "@motionone/utils" "^10.14.0"
-    tslib "^2.3.1"
-
-"@motionone/generators@^10.14.0":
-  version "10.14.0"
-  resolved "https://registry.npmmirror.com/@motionone/generators/-/generators-10.14.0.tgz#e05d9dd56da78a4b92db99185848a0f3db62242d"
-  integrity sha512-6kRHezoFfIjFN7pPpaxmkdZXD36tQNcyJe3nwVqwJ+ZfC0e3rFmszR8kp9DEVFs9QL/akWjuGPSLBI1tvz+Vjg==
-  dependencies:
-    "@motionone/types" "^10.14.0"
-    "@motionone/utils" "^10.14.0"
-    tslib "^2.3.1"
-
-"@motionone/svelte@^10.14.3":
-  version "10.14.3"
-  resolved "https://registry.npmmirror.com/@motionone/svelte/-/svelte-10.14.3.tgz#4e3011629344e6ddcf783a33fb2eea4258f15fef"
-  integrity sha512-fHyyyGJRkHsfE2IAg+6YU0BiMT/Jz5OAMpJvBZs3oGfwsgdqSms4YtLW22Ecs87e59hPZ26SqWCHad6enRfD9A==
-  dependencies:
-    "@motionone/dom" "^10.14.3"
-    tslib "^2.3.1"
-
-"@motionone/types@^10.14.0":
-  version "10.14.0"
-  resolved "https://registry.npmmirror.com/@motionone/types/-/types-10.14.0.tgz#148c34f3270b175397e49c3058b33fab405c21e3"
-  integrity sha512-3bNWyYBHtVd27KncnJLhksMFQ5o2MSdk1cA/IZqsHtA9DnRM1SYgN01CTcJ8Iw8pCXF5Ocp34tyAjY7WRpOJJQ==
-
-"@motionone/utils@^10.14.0":
-  version "10.14.0"
-  resolved "https://registry.npmmirror.com/@motionone/utils/-/utils-10.14.0.tgz#a19a3464ed35b08506747b062d035c7bc9bbe708"
-  integrity sha512-sLWBLPzRqkxmOTRzSaD3LFQXCPHvDzyHJ1a3VP9PRzBxyVd2pv51/gMOsdAcxQ9n+MIeGJnxzXBYplUHKj4jkw==
-  dependencies:
-    "@motionone/types" "^10.14.0"
-    hey-listen "^1.0.8"
-    tslib "^2.3.1"
-
-"@motionone/vue@^10.14.3":
-  version "10.14.3"
-  resolved "https://registry.npmmirror.com/@motionone/vue/-/vue-10.14.3.tgz#20ca718c898bcc19a0df771615e14e53ed65d451"
-  integrity sha512-FZ/vefJMDthnzlVQbL2I54WEvDyx720KClxWqmHZZ+wKic+i9XhNCU1qijGcvA3/1sFFp8u9fOqmejEWXSsHmw==
-  dependencies:
-    "@motionone/dom" "^10.14.3"
-    tslib "^2.3.1"
-
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.npmmirror.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -1135,11 +1066,6 @@ has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
-hey-listen@^1.0.8:
-  version "1.0.8"
-  resolved "https://registry.npmmirror.com/hey-listen/-/hey-listen-1.0.8.tgz#8e59561ff724908de1aa924ed6ecc84a56a9aa68"
-  integrity sha512-COpmrF2NOg4TBWUJ5UVyaCU2A88wEMkUPK4hNqyCkqHbxT92BbvfjoSozkAIIm6XhicGlJHhFdullInrdhwU8Q==
-
 hosted-git-info@^2.1.4:
   version "2.8.9"
   resolved "https://registry.npmmirror.com/hosted-git-info/-/hosted-git-info-2.8.9.tgz#dffc0bf9a21c02209090f2aa69429e1414daf3f9"
@@ -1619,18 +1545,6 @@ mixin-deep@^1.2.0:
     for-in "^1.0.2"
     is-extendable "^1.0.1"
 
-motion@^10.14.3:
-  version "10.14.3"
-  resolved "https://registry.npmmirror.com/motion/-/motion-10.14.3.tgz#3150cd0c646f405e999aba7c96fe1e65f6ce184b"
-  integrity sha512-xBbgYho8nPiR2OZOrfJTbJpiiQl0F2PZF6H5ItAeIPJEfA/x0ZwxpFC/gbsKfUv3CFUVAoxCRkTDCJjiZ48dxw==
-  dependencies:
-    "@motionone/animation" "^10.14.0"
-    "@motionone/dom" "^10.14.3"
-    "@motionone/svelte" "^10.14.3"
-    "@motionone/types" "^10.14.0"
-    "@motionone/utils" "^10.14.0"
-    "@motionone/vue" "^10.14.3"
-
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.npmmirror.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
@@ -1819,14 +1733,6 @@ path-type@^3.0.0:
   integrity sha512-T2ZUsdZFHgA3u4e5PfPbjd7HDDpxPnQb5jN0SrDsjNSuVXHJqtwTnWqG0B1jZrgmJ/7lj1EmVIByWt1gxGkWvg==
   dependencies:
     pify "^3.0.0"
-
-photo-sphere-viewer@^4.8.0:
-  version "4.8.0"
-  resolved "https://registry.npmmirror.com/photo-sphere-viewer/-/photo-sphere-viewer-4.8.0.tgz#d05962941ce5aa5187f7f6455150c3972843080a"
-  integrity sha512-38ghMfFKkFKjBNA9VxtxF0KQUYRI4cgmttbL/suxl9XnllxzQmK+Vz5SvXNEK6nbQ/zmv9ezen3ULZfDh8Q7QA==
-  dependencies:
-    three "^0.146.0"
-    uevent "^2.1.1"
 
 picocolors@^1.0.0:
   version "1.0.0"
@@ -2281,11 +2187,6 @@ swiper@^8.4.4:
     dom7 "^4.0.4"
     ssr-window "^4.0.2"
 
-three@^0.146.0:
-  version "0.146.0"
-  resolved "https://registry.npmmirror.com/three/-/three-0.146.0.tgz#fd80f0d128ab4bb821a02191ae241e4e6326f17a"
-  integrity sha512-1lvNfLezN6OJ9NaFAhfX4sm5e9YCzHtaRgZ1+B4C+Hv6TibRMsuBAM5/wVKzxjpYIlMymvgsHEFrrigEfXnb2A==
-
 to-object-path@^0.3.0:
   version "0.3.0"
   resolved "https://registry.npmmirror.com/to-object-path/-/to-object-path-0.3.0.tgz#297588b7b0e7e0ac08e04e672f85c1f4999e17af"
@@ -2323,11 +2224,6 @@ trim-newlines@^2.0.0:
   resolved "https://registry.npmmirror.com/trim-newlines/-/trim-newlines-2.0.0.tgz#b403d0b91be50c331dfc4b82eeceb22c3de16d20"
   integrity sha512-MTBWv3jhVjTU7XR3IQHllbiJs8sc75a80OEhB6or/q7pLTWgQ0bMGQXXYQSrSuXe6WiKWDZ5txXY5P59a/coVA==
 
-tslib@^2.3.1:
-  version "2.4.1"
-  resolved "https://registry.npmmirror.com/tslib/-/tslib-2.4.1.tgz#0d0bfbaac2880b91e22df0768e55be9753a5b17e"
-  integrity sha512-tGyy4dAjRIEwI7BzsB0lynWgOpfqjUdq91XXAlIWD2OwKBH7oCl/GZG/HT4BOHrTlPMOASlMQ7veyTqpmRcrNA==
-
 ttf2eot@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmmirror.com/ttf2eot/-/ttf2eot-2.0.0.tgz#8e6337a585abd1608a0c84958ab483ce69f6654b"
@@ -2344,11 +2240,6 @@ ttf2woff@^2.0.0:
     argparse "^1.0.6"
     microbuffer "^1.0.0"
     pako "^1.0.0"
-
-uevent@^2.1.1:
-  version "2.2.0"
-  resolved "https://registry.npmmirror.com/uevent/-/uevent-2.2.0.tgz#ac2d8c0f9b05e2b71389363fc0cb536cdbc74ec3"
-  integrity sha512-48s5LF/c6R1fUmctGib/dWKhZjZLd4aK/85dwVAbwgHNBSO0k0UNp0ZKZpkSbU6633qYhgykYQPakTSuOxZopA==
 
 unbox-primitive@^1.0.2:
   version "1.0.2"
