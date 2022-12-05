@@ -47,7 +47,7 @@
           @click="handleCurrentPreview(item, index)"
         >
           <img :src="item.thumbnail" alt="" />
-          <div class="case__title">{{ item.name }}</div>
+          <div class="case__title">{{ item.title }}</div>
           <img :src="vr360" alt="" class="vr__icon" v-if="item.isVr" />
         </div>
       </div>
