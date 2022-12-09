@@ -120,39 +120,6 @@
           </div>
         </var-swipe-item>
       </var-swipe>
-      <!-- <swiper
-        :effect="'coverflow'"
-        :coverflowEffect="{
-          // slide做3d旋转时Y轴的旋转角度
-          rotate: 0,
-          // 每个slide之间的拉伸值，越大slide靠得越紧。5.3.6 后可使用%百分比
-          stretch: -60,
-          // slide的位置深度。值越大z轴距离越远，看起来越小。
-          depth: 300,
-          // depth和rotate和stretch的倍率，相当于depth*modifier、rotate*modifier、stretch*modifier，值越大这三个参数的效果越明显。
-          modifier: 1,
-          // 是否开启slide阴影
-        }"
-        :centeredSlides="true"
-        slidesPerView="1.6"
-        :grabCursor="true"
-        :modules="[EffectCoverflow, Pagination, Autoplay]"
-        class="mySwiper"
-      >
-        <swiper-slide v-for="(item, index) in designer" :key="index">
-          <div class="user__intro">
-            <div class="user__main__info">
-              <img :src="item.avatar" alt="" />
-              <div class="user__info--name">{{ item.name }}</div>
-              <div class="user__info--job-name">{{ item.jobName }}</div>
-              <div class="user__info--advantage">
-                <span>{{ item.description }}</span>
-                <a href="">更多></a>
-              </div>
-            </div>
-          </div>
-        </swiper-slide>
-      </swiper> -->
     </div>
     <!-- 服务流程 -->
     <div class="service__flow">
