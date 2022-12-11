@@ -168,7 +168,7 @@
                 <div class="step__box-title">确认立面效果方案</div>
                 <img
                   class="step__box-img"
-                  :src="require('@/assets/imgs/limianfangan.png')"
+                  :src="require('@/assets/imgs/xianchang.png')"
                   alt=""
                 />
               </div>
@@ -180,7 +180,7 @@
                 <div class="step__box-title">确认施工图方案</div>
                 <img
                   class="step__box-img"
-                  :src="require('@/assets/imgs/xianchang.png')"
+                  :src="require('@/assets/imgs/limianfangan.png')"
                   alt=""
                 />
               </div>
@@ -228,7 +228,7 @@ export default {
         [
           {
             jobName: "总监设计师",
-            name: "俞森请",
+            name: "俞森清",
             avatar: "https://img.picgo.net/2022/11/23/12809ec48de37c9fb.png",
             description:
               "从业8年,毕业于安徽建筑大学。擅长新中式、现代简约、美式等风格。",
