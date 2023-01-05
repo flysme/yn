@@ -41,21 +41,21 @@
             <div class="info_divider"></div>
             <div class="info__item">
               <div class="info__num">
-                {{ companyInfo.customerNum.toFixed(0) }}人
+                {{ companyInfo.customerNum.toFixed(0) }}+人
               </div>
               <div class="info__title">总服务客户</div>
             </div>
             <div class="info_divider"></div>
             <div class="info__item">
               <div class="info__num">
-                {{ companyInfo.acreageNum.toFixed(0) }}㎡
+                {{ companyInfo.acreageNum.toFixed(0) }}+㎡
               </div>
               <div class="info__title">设计面积</div>
             </div>
             <div class="info_divider"></div>
             <div class="info__item">
               <div class="info__num">
-                {{ companyInfo.teamNum.toFixed(0) }}人
+                {{ companyInfo.teamNum.toFixed(0) }}+人
               </div>
               <div class="info__title">团队规模</div>
             </div>
@@ -218,10 +218,10 @@ export default {
       caseImgList: [],
       // 公司基本信息
       companyInfo: {
-        companySetupDate: 2020,
-        customerNum: 300,
-        acreageNum: 60000,
-        teamNum: 100,
+        companySetupDate: 2022,
+        customerNum: 100,
+        acreageNum: 10000,
+        teamNum: 30,
       },
       swipeIconList: [],
       designer: [
@@ -349,7 +349,7 @@ export default {
 <style lang="scss" scoped>
 .swipe-example {
   width: 100%;
-  height: 300px;
+  height: 600px;
 }
 
 .nav__bar--title {
@@ -360,7 +360,7 @@ export default {
 
 .swipe-example-image {
   width: 100%;
-  height: 300px;
+  height: 600px;
   object-fit: cover;
   pointer-events: none;
 }
@@ -373,19 +373,20 @@ export default {
   .home__intro {
     position: relative;
     width: 100%;
-    background-color: #f5f5f7b5;
+    margin-top: -210px;
+    // background-color: #f5f5f7b5;
     .company__main {
       width: 100%;
       height: 210px;
-      background-image: url("~@/assets/imgs/compnany.jpeg");
-      background-repeat: no-repeat;
-      background-size: 100%;
+      // background-image: url("~@/assets/imgs/compnany.jpeg");
+      // background-repeat: no-repeat;
+      // background-size: 100%;
       .cover {
         position: absolute;
         left: 0;
         top: 0;
-        background: #000;
-        opacity: 0.2;
+        // background: #000;
+        // opacity: 0.2;
         width: 100%;
         height: 100%;
         z-index: 10;
